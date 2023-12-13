@@ -1,0 +1,2 @@
+grid_map_controller:serial_controller
+-DCATKIN_DEVEL_PREFIX=/home/maker/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/maker/catkin_ws/install -G Unix Makefiles
