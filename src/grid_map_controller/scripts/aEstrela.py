@@ -180,4 +180,3 @@ if caminho:
     movimento_robo(caminho,serial_connection)
 else:
     print("Caminho não encontrado.")
-
