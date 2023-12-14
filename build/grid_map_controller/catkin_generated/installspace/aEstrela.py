@@ -1,4 +1,5 @@
 import math
+import serial
 import rospy
 from std_msgs.msg import String  
 
@@ -73,9 +74,56 @@ def publicar_caminho(caminho):
         pub.publish(coordenadas)
         rate.sleep()
 
+def movimento_robo(coordenadas, serial_connection):
+    
+    for i in range(1, len(coordenadas)):
+        x_anterior, y_anterior = coordenadas[i - 1].x, coordenadas[i - 1].y
+        x_atual, y_atual = coordenadas[i].x, coordenadas[i].y
+
+        comando = ''
+
+        if y_atual > y_anterior:
+            comando += 'W'
+        elif y_atual < y_anterior:
+            comando += 'S'
+
+        if x_atual > x_anterior:
+            comando += 'D'
+        elif x_atual < x_anterior:
+            comando += 'A'
+
+        # Envia comando para porta serial (substitua isso pela lógica real de enviar para a porta serial)
+        if comando and serial_connection:
+            print(f"Enviando comando {comando} para a porta serial")
+            enviar_para_serial(serial_connection, comando)
+    
+    if serial_connection:
+        serial_connection.close()
+
+
+
+def inicializar_serial(porta_serial):
+    try:
+        ser = serial.Serial(porta_serial, baudrate=9600, timeout=1)
+        return ser
+    except serial.SerialException as e:
+        print(f"Erro ao abrir a porta serial: {e}")
+        return None
+
+# Envia comando para a porta serial
+def enviar_para_serial(ser, comando):
+    try:
+        if ser:
+            ser.write(comando.encode()) 
+            print(f"Enviando comando '{comando}' para a porta serial")
+        else:
+            print("Erro: Porta serial não está aberta.")
+    except serial.SerialException as e:
+        print(f"Erro ao enviar comando pela porta serial: {e}")
+
 
 # Definição manual da matriz
-matriz = [
+matriz2 = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -87,6 +135,16 @@ matriz = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
 ]
+
+matriz = [
+    [0,0,1,1],
+    [0,0,1,0],
+    [0,0,0,0],
+    [0,1,0,0],
+]
+
+serial_port = '/dev/ttyUSB0'  
+serial_connection = inicializar_serial(serial_port)
 
 # Criando nós a partir da matriz
 linhas = len(matriz)
@@ -107,8 +165,8 @@ for i in range(linhas):
                 nos[i][j].vizinhos.append(nos[i][j + 1])  # Direita
 
 # Definindo nó de início e destino
-inicio_x, inicio_y = 4, 2  # Coordenadas de início
-objetivo_x, objetivo_y = 9, 10  # Coordenadas de chegada
+inicio_x, inicio_y = 0, 0 #4, 2  # Coordenadas de início
+objetivo_x, objetivo_y = 3 ,3 #9, 10  # Coordenadas de chegada
 
 inicio = nos[inicio_x][inicio_y]
 objetivo = nos[objetivo_x][objetivo_y]
@@ -119,6 +177,7 @@ caminho = AlgoritmoAStar.a_estrela(inicio, objetivo, matriz, nos)
 # Exibindo o caminho encontrado
 if caminho:
     print("Caminho encontrado:", [(no.x, no.y) for no in caminho])
+    movimento_robo(caminho,serial_connection)
 else:
     print("Caminho não encontrado.")
 
