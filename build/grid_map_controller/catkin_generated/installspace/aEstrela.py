@@ -96,7 +96,7 @@ def movimento_robo(coordenadas, serial_connection):
         if comando and serial_connection:
             print(f"Enviando comando {comando} para a porta serial")
             enviar_para_serial(serial_connection, comando)
-    
+         
     if serial_connection:
         serial_connection.close()
 

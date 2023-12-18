@@ -75,28 +75,26 @@ def publicar_caminho(caminho):
         rate.sleep()
 
 def movimento_robo(coordenadas, serial_connection):
-    
+    #comando = 'WAWDWAWDWAWD'
+    comando = ''
     for i in range(1, len(coordenadas)):
-        x_anterior, y_anterior = coordenadas[i - 1].x, coordenadas[i - 1].y
-        x_atual, y_atual = coordenadas[i].x, coordenadas[i].y
+        x_anterior = coordenadas[i - 1].x
+        y_anterior = coordenadas[i - 1].y
 
-        comando = ''
 
-        if y_atual > y_anterior:
-            comando += 'W'
-        elif y_atual < y_anterior:
-            comando += 'S'
+        x_atual = coordenadas[i].x
+        y_atual = coordenadas[i].y
 
         if x_atual > x_anterior:
-            comando += 'D'
-        elif x_atual < x_anterior:
-            comando += 'A'
+            comando += 'W'
+        elif x_atual == x_anterior and y_atual > y_anterior:
+            comando += 'AWD'
+        
 
-        # Envia comando para porta serial (substitua isso pela lógica real de enviar para a porta serial)
-        if comando and serial_connection:
-            print(f"Enviando comando {comando} para a porta serial")
-            enviar_para_serial(serial_connection, comando)
-    
+    if comando and serial_connection:
+        print(f"Enviando comando {comando} para a porta serial")
+        enviar_para_serial(serial_connection, comando)
+        
     if serial_connection:
         serial_connection.close()
 
@@ -115,12 +113,26 @@ def enviar_para_serial(ser, comando):
     try:
         if ser:
             ser.write(comando.encode()) 
-            print(f"Enviando comando '{comando}' para a porta serial")
         else:
             print("Erro: Porta serial não está aberta.")
     except serial.SerialException as e:
         print(f"Erro ao enviar comando pela porta serial: {e}")
 
+def conexoes(linhas, colunas, nos):
+    for i in range(linhas):
+        for j in range(colunas):
+            if nos[i][j]:
+                if i > 0 and nos[i - 1][j]:
+                    nos[i][j].vizinhos.append(nos[i - 1][j])  # Acima
+                if i < linhas - 1 and nos[i + 1][j]:
+                    nos[i][j].vizinhos.append(nos[i + 1][j])  # Abaixo
+                if j > 0 and nos[i][j - 1]:
+                    nos[i][j].vizinhos.append(nos[i][j - 1])  # Esquerda
+                if j < colunas - 1 and nos[i][j + 1]:
+                    nos[i][j].vizinhos.append(nos[i][j + 1])  # Direita
+ 
+
+#######################################---MAIN---#######################################
 
 # Definição manual da matriz
 matriz2 = [
@@ -152,31 +164,25 @@ colunas = len(matriz[0])
 nos = [[Node(i, j) if matriz[i][j] == 0 else None for j in range(colunas)] for i in range(linhas)]
 
 # Estabelecendo conexões entre os nós
-for i in range(linhas):
-    for j in range(colunas):
-        if nos[i][j]:
-            if i > 0 and nos[i - 1][j]:
-                nos[i][j].vizinhos.append(nos[i - 1][j])  # Acima
-            if i < linhas - 1 and nos[i + 1][j]:
-                nos[i][j].vizinhos.append(nos[i + 1][j])  # Abaixo
-            if j > 0 and nos[i][j - 1]:
-                nos[i][j].vizinhos.append(nos[i][j - 1])  # Esquerda
-            if j < colunas - 1 and nos[i][j + 1]:
-                nos[i][j].vizinhos.append(nos[i][j + 1])  # Direita
+conexoes(linhas,colunas,nos)
+
 
 # Definindo nó de início e destino
-inicio_x, inicio_y = 0, 0 #4, 2  # Coordenadas de início
-objetivo_x, objetivo_y = 3 ,3 #9, 10  # Coordenadas de chegada
+inicio_x, inicio_y = 0, 0 
+objetivo_x, objetivo_y = 3 ,3  
+
+#inicio_x, inicio_y = 4, 2  
+#objetivo_x, objetivo_y = 9, 10 
 
 inicio = nos[inicio_x][inicio_y]
 objetivo = nos[objetivo_x][objetivo_y]
 
-# Encontrando o caminho usando A*
+
 caminho = AlgoritmoAStar.a_estrela(inicio, objetivo, matriz, nos)
 
-# Exibindo o caminho encontrado
 if caminho:
     print("Caminho encontrado:", [(no.x, no.y) for no in caminho])
     movimento_robo(caminho,serial_connection)
 else:
     print("Caminho não encontrado.")
+
