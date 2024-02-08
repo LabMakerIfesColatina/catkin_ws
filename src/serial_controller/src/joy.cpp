@@ -10,7 +10,6 @@
 /*
   rosparam set joy_node/dev "/dev/input/js0"
   rosrun joy joy_node
-  source osorim_ws/devel/setup.bash
 
   Ao abrir o terminal primeira coisa deve se colocar o parametro de imput para setar o Joystick
   depois dar um source.... 
@@ -62,7 +61,7 @@ void callback(const sensor_msgs::Joy::ConstPtr& msg) {
   /*
     Define a velocidade de transmissão (9600 bps)
   */
-  cfsetospeed(&tty, B9600); 
+  cfsetospeed(&tty, B1152000); 
 
   /*
     Aplica as configurações à porta serial
