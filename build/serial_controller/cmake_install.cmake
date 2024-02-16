@@ -52,3 +52,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/serial_controller" TYPE FILE FILES "/home/maker/catkin_ws/src/serial_controller/package.xml")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/serial_controller" TYPE PROGRAM FILES "/home/maker/catkin_ws/build/serial_controller/catkin_generated/installspace/joy.py")
+endif()
+

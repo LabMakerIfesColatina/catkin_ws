@@ -61,7 +61,7 @@ void callback(const sensor_msgs::Joy::ConstPtr& msg) {
   /*
     Define a velocidade de transmissão (9600 bps)
   */
-  cfsetospeed(&tty, B1152000); 
+  cfsetospeed(&tty, B9600); 
 
   /*
     Aplica as configurações à porta serial

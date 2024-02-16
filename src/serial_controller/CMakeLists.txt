@@ -208,3 +208,8 @@ include_directories(
 
 add_executable(teste src/joy.cpp)
 target_link_libraries(teste ${catkin_LIBRARIES})
+
+catkin_install_python(PROGRAMS
+  scripts/joy.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)

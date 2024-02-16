@@ -23,6 +23,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/maker/catkin_ws/src/grid_map_controller/scripts/aEstrela.py"
   "/home/maker/catkin_ws/src/serial_controller/CMakeLists.txt"
   "/home/maker/catkin_ws/src/serial_controller/package.xml"
+  "/home/maker/catkin_ws/src/serial_controller/scripts/joy.py"
   "/opt/ros/noetic/share/catkin/cmake/all.cmake"
   "/opt/ros/noetic/share/catkin/cmake/assert.cmake"
   "/opt/ros/noetic/share/catkin/cmake/atomic_configure_file.cmake"
