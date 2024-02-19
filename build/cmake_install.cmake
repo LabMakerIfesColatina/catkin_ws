@@ -132,6 +132,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/maker/catkin_ws/build/gtest/cmake_install.cmake")
   include("/home/maker/catkin_ws/build/grid_map_controller/cmake_install.cmake")
+  include("/home/maker/catkin_ws/build/localizer_controller/cmake_install.cmake")
+  include("/home/maker/catkin_ws/build/motion_planing_controller/cmake_install.cmake")
   include("/home/maker/catkin_ws/build/serial_controller/cmake_install.cmake")
 
 endif()

@@ -1,0 +1,8 @@
+prefix=/home/maker/catkin_ws/install
+
+Name: localizer_controller
+Description: Description of localizer_controller
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

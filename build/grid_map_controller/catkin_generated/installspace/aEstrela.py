@@ -1,10 +1,11 @@
 import math
-import serial
 import rospy
-from std_msgs.msg import String  
+from std_msgs.msg import String
+import serial
 
 
-class Node:
+
+class Nodes:
     def __init__(self, x, y):
         self.x = x
         self.y = y
@@ -60,20 +61,20 @@ class AlgoritmoAStar:
         return caminho
 
 
-def publicar_caminho(caminho):
-    rospy.init_node('publicador_caminho', anonymous=True)
-    pub = rospy.Publisher('caminho_encontrado', String, queue_size=10)
-    rate = rospy.Rate(1)  # Defina a frequência de publicação (1 Hz neste exemplo)
-
-    while not rospy.is_shutdown():
-        coordenadas = ""
-        for no in caminho:
-            coordenadas += f"({no.x}, {no.y}) "
-
-        rospy.loginfo(coordenadas)
-        pub.publish(coordenadas)
-        rate.sleep()
-
+def conexoes(linhas, colunas, nos):
+    for i in range(linhas):
+        for j in range(colunas):
+            if nos[i][j]:
+                if i > 0 and nos[i - 1][j]:
+                    nos[i][j].vizinhos.append(nos[i - 1][j])  # Acima
+                if i < linhas - 1 and nos[i + 1][j]:
+                    nos[i][j].vizinhos.append(nos[i + 1][j])  # Abaixo
+                if j > 0 and nos[i][j - 1]:
+                    nos[i][j].vizinhos.append(nos[i][j - 1])  # Esquerda
+                if j < colunas - 1 and nos[i][j + 1]:
+                    nos[i][j].vizinhos.append(nos[i][j + 1])  # Direita
+ 
+                    
 def movimento_robo(coordenadas, serial_connection):
     #comando = 'WAWDWAWDWAWD'
     comando = ''
@@ -98,6 +99,25 @@ def movimento_robo(coordenadas, serial_connection):
     if serial_connection:
         serial_connection.close()
 
+def ler_string(msg, valores):
+    rospy.loginfo("Caminho lido no nó assinante: %s", msg.data)
+    
+    valores_str = msg.data.split(',')
+    
+    try:      
+        x = int(valores_str[0])
+        y = int(valores_str[1])
+    except ValueError:
+        rospy.logwarn("Erro ao converter os valores para inteiros.")
+        x = 0
+        y = 0
+    
+    valores.extend([x, y])
+
+def ler_caminho(valores):
+    rospy.init_node('assinante_string', anonymous=True)
+    rospy.Subscriber('minha_string', String, ler_string, callback_args=valores)
+    rospy.spin() 
 
 
 def inicializar_serial(porta_serial):
@@ -108,7 +128,6 @@ def inicializar_serial(porta_serial):
         print(f"Erro ao abrir a porta serial: {e}")
         return None
 
-# Envia comando para a porta serial
 def enviar_para_serial(ser, comando):
     try:
         if ser:
@@ -118,23 +137,11 @@ def enviar_para_serial(ser, comando):
     except serial.SerialException as e:
         print(f"Erro ao enviar comando pela porta serial: {e}")
 
-def conexoes(linhas, colunas, nos):
-    for i in range(linhas):
-        for j in range(colunas):
-            if nos[i][j]:
-                if i > 0 and nos[i - 1][j]:
-                    nos[i][j].vizinhos.append(nos[i - 1][j])  # Acima
-                if i < linhas - 1 and nos[i + 1][j]:
-                    nos[i][j].vizinhos.append(nos[i + 1][j])  # Abaixo
-                if j > 0 and nos[i][j - 1]:
-                    nos[i][j].vizinhos.append(nos[i][j - 1])  # Esquerda
-                if j < colunas - 1 and nos[i][j + 1]:
-                    nos[i][j].vizinhos.append(nos[i][j + 1])  # Direita
- 
 
 #######################################---MAIN---#######################################
 
 # Definição manual da matriz
+
 matriz2 = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -161,14 +168,16 @@ serial_connection = inicializar_serial(serial_port)
 # Criando nós a partir da matriz
 linhas = len(matriz)
 colunas = len(matriz[0])
-nos = [[Node(i, j) if matriz[i][j] == 0 else None for j in range(colunas)] for i in range(linhas)]
+nos = [[Nodes(i, j) if matriz[i][j] == 0 else None for j in range(colunas)] for i in range(linhas)]
 
 # Estabelecendo conexões entre os nós
 conexoes(linhas,colunas,nos)
-
+valores = []
+ler_caminho(valores)
 
 # Definindo nó de início e destino
-inicio_x, inicio_y = 0, 0 
+inicio_x =  valores[0]
+inicio_y =  valores[1]
 objetivo_x, objetivo_y = 3 ,3  
 
 #inicio_x, inicio_y = 4, 2  

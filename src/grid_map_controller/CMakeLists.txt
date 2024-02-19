@@ -205,7 +205,9 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 ## Certifique-se de que o Python é instalado para o seu pacote
+## Especificar bibliotecas e scripts para compilar
 catkin_install_python(PROGRAMS
   scripts/aEstrela.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
+

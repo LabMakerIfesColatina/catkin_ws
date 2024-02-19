@@ -10,13 +10,13 @@ serial_port = serial.Serial('/dev/ttyUSB0', baudrate=9600, timeout=0.1)
 
 def callback(msg):
     # Mapeia os valores dos eixos e botões para comandos
-    if msg.axes[1] == 1:
+    if msg.axes[7] == 1:
         message = b'W'
-    elif msg.axes[1] == -1:
+    elif msg.axes[7] == -1:
         message = b'S'
-    elif msg.axes[0] == 1:
+    elif msg.axes[6] == 1:
         message = b'A'
-    elif msg.axes[0] == -1:
+    elif msg.axes[6] == -1:
         message = b'D'
     elif msg.buttons[0] == 1:
         message = b'P'
