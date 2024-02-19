@@ -1,33 +1,26 @@
-#!/usr/bin/env python
-
 import rospy
 from sensor_msgs.msg import Joy
-import serial
-import time
+from std_msgs.msg import String
 
-# Define a porta serial
-serial_port = serial.Serial('/dev/ttyUSB0', baudrate=9600, timeout=0.1)
+serial_command_pub = rospy.Publisher("/serial_command", String, queue_size=10)
 
 def callback(msg):
-    # Mapeia os valores dos eixos e botões para comandos
     if msg.axes[7] == 1:
-        message = b'W'
+        message = 'W'
     elif msg.axes[7] == -1:
-        message = b'S'
+        message = 'S'
     elif msg.axes[6] == 1:
-        message = b'A'
+        message = 'A'
     elif msg.axes[6] == -1:
-        message = b'D'
+        message = 'D'
     elif msg.buttons[0] == 1:
-        message = b'P'
+        message = 'P'
     else:
-        message = b' '
+        message = ' '
 
-    # Envia a string para a porta serial
-    print(message.decode('utf-8'))
-    serial_port.write(message)
+    serial_command_pub.publish(message)
+    print(message)
 
-# Função principal
 def joystick_control():
     rospy.init_node('joystick_control', anonymous=True)
     rospy.Subscriber("/joy", Joy, callback)
@@ -39,7 +32,3 @@ if __name__ == '__main__':
         joystick_control()
     except rospy.ROSInterruptException:
         pass
-    finally:
-        # Fecha a porta serial ao finalizar
-        if serial_port.is_open:
-            serial_port.close()

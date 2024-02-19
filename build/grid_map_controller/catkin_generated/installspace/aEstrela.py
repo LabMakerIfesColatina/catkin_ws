@@ -94,7 +94,7 @@ def movimento_robo(coordenadas, serial_connection):
 
     if comando and serial_connection:
         print(f"Enviando comando {comando} para a porta serial")
-        enviar_para_serial(serial_connection, comando)
+        #enviar_para_serial(serial_connection, comando)
         
     if serial_connection:
         serial_connection.close()
@@ -118,24 +118,6 @@ def ler_caminho(valores):
     rospy.init_node('assinante_string', anonymous=True)
     rospy.Subscriber('minha_string', String, ler_string, callback_args=valores)
     rospy.spin() 
-
-
-def inicializar_serial(porta_serial):
-    try:
-        ser = serial.Serial(porta_serial, baudrate=9600, timeout=1)
-        return ser
-    except serial.SerialException as e:
-        print(f"Erro ao abrir a porta serial: {e}")
-        return None
-
-def enviar_para_serial(ser, comando):
-    try:
-        if ser:
-            ser.write(comando.encode()) 
-        else:
-            print("Erro: Porta serial não está aberta.")
-    except serial.SerialException as e:
-        print(f"Erro ao enviar comando pela porta serial: {e}")
 
 
 #######################################---MAIN---#######################################
@@ -162,8 +144,6 @@ matriz = [
     [0,1,0,0],
 ]
 
-serial_port = '/dev/ttyUSB0'  
-serial_connection = inicializar_serial(serial_port)
 
 # Criando nós a partir da matriz
 linhas = len(matriz)
@@ -191,7 +171,7 @@ caminho = AlgoritmoAStar.a_estrela(inicio, objetivo, matriz, nos)
 
 if caminho:
     print("Caminho encontrado:", [(no.x, no.y) for no in caminho])
-    movimento_robo(caminho,serial_connection)
+    #movimento_robo(caminho,serial_connection)
 else:
     print("Caminho não encontrado.")
 
