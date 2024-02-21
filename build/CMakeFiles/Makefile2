@@ -55,18 +55,28 @@ CMAKE_BINARY_DIR = /home/maker/catkin_ws/build
 # The main recursive "all" target.
 all: gtest/all
 all: grid_map_controller/all
+all: img_reception_intern/all
+all: img_transmission_intern/all
 all: localizer_controller/all
+all: map_controller/all
 all: motion_planing_controller/all
 all: serial_controller/all
+all: vid_reception_ip/all
+all: vid_transmission_ip/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
 preinstall: grid_map_controller/preinstall
+preinstall: img_reception_intern/preinstall
+preinstall: img_transmission_intern/preinstall
 preinstall: localizer_controller/preinstall
+preinstall: map_controller/preinstall
 preinstall: motion_planing_controller/preinstall
 preinstall: serial_controller/preinstall
+preinstall: vid_reception_ip/preinstall
+preinstall: vid_transmission_ip/preinstall
 
 .PHONY : preinstall
 
@@ -78,9 +88,14 @@ clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
 clean: grid_map_controller/clean
+clean: img_reception_intern/clean
+clean: img_transmission_intern/clean
 clean: localizer_controller/clean
+clean: map_controller/clean
 clean: motion_planing_controller/clean
 clean: serial_controller/clean
+clean: vid_reception_ip/clean
+clean: vid_transmission_ip/clean
 
 .PHONY : clean
 
@@ -174,6 +189,42 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 .PHONY : gtest/googletest/clean
 
 #=============================================================================
+# Directory level rules for directory img_reception_intern
+
+# Recursive "all" directory target.
+img_reception_intern/all:
+
+.PHONY : img_reception_intern/all
+
+# Recursive "preinstall" directory target.
+img_reception_intern/preinstall:
+
+.PHONY : img_reception_intern/preinstall
+
+# Recursive "clean" directory target.
+img_reception_intern/clean:
+
+.PHONY : img_reception_intern/clean
+
+#=============================================================================
+# Directory level rules for directory img_transmission_intern
+
+# Recursive "all" directory target.
+img_transmission_intern/all:
+
+.PHONY : img_transmission_intern/all
+
+# Recursive "preinstall" directory target.
+img_transmission_intern/preinstall:
+
+.PHONY : img_transmission_intern/preinstall
+
+# Recursive "clean" directory target.
+img_transmission_intern/clean:
+
+.PHONY : img_transmission_intern/clean
+
+#=============================================================================
 # Directory level rules for directory localizer_controller
 
 # Recursive "all" directory target.
@@ -190,6 +241,24 @@ localizer_controller/preinstall:
 localizer_controller/clean:
 
 .PHONY : localizer_controller/clean
+
+#=============================================================================
+# Directory level rules for directory map_controller
+
+# Recursive "all" directory target.
+map_controller/all:
+
+.PHONY : map_controller/all
+
+# Recursive "preinstall" directory target.
+map_controller/preinstall:
+
+.PHONY : map_controller/preinstall
+
+# Recursive "clean" directory target.
+map_controller/clean:
+
+.PHONY : map_controller/clean
 
 #=============================================================================
 # Directory level rules for directory motion_planing_controller
@@ -226,6 +295,42 @@ serial_controller/preinstall:
 serial_controller/clean: serial_controller/CMakeFiles/teste.dir/clean
 
 .PHONY : serial_controller/clean
+
+#=============================================================================
+# Directory level rules for directory vid_reception_ip
+
+# Recursive "all" directory target.
+vid_reception_ip/all:
+
+.PHONY : vid_reception_ip/all
+
+# Recursive "preinstall" directory target.
+vid_reception_ip/preinstall:
+
+.PHONY : vid_reception_ip/preinstall
+
+# Recursive "clean" directory target.
+vid_reception_ip/clean:
+
+.PHONY : vid_reception_ip/clean
+
+#=============================================================================
+# Directory level rules for directory vid_transmission_ip
+
+# Recursive "all" directory target.
+vid_transmission_ip/all:
+
+.PHONY : vid_transmission_ip/all
+
+# Recursive "preinstall" directory target.
+vid_transmission_ip/preinstall:
+
+.PHONY : vid_transmission_ip/preinstall
+
+# Recursive "clean" directory target.
+vid_transmission_ip/clean:
+
+.PHONY : vid_transmission_ip/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/doxygen.dir

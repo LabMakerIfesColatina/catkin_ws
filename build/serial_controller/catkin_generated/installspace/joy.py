@@ -4,26 +4,23 @@ from std_msgs.msg import String
 
 serial_command_pub = rospy.Publisher("/serial_command", String, queue_size=10)
 
-
 def callback(msg):
     if msg.axes[7] == 1:
-        message = b'W'
+        message = 'W'
     elif msg.axes[7] == -1:
-        message = b'S'
+        message = 'S'
     elif msg.axes[6] == 1:
-        message = b'A'
+        message = 'A'
     elif msg.axes[6] == -1:
-        message = b'D'
+        message = 'D'
     elif msg.buttons[0] == 1:
-        message = b'P'
+        message = 'P'
     else:
-        message = b' '
+        message = ' '
 
     serial_command_pub.publish(message)
-    print(message.decode('utf-8'))
+    print(message)
 
-
-# Função principal
 def joystick_control():
     rospy.init_node('joystick_control', anonymous=True)
     rospy.Subscriber("/joy", Joy, callback)
@@ -35,4 +32,3 @@ if __name__ == '__main__':
         joystick_control()
     except rospy.ROSInterruptException:
         pass
-

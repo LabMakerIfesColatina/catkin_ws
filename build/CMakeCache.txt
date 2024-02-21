@@ -452,14 +452,32 @@ gtest_hide_internal_symbols:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;gtest;
 
+//Value Computed by CMake
+img_reception_intern_BINARY_DIR:STATIC=/home/maker/catkin_ws/build/img_reception_intern
+
+//Value Computed by CMake
+img_reception_intern_SOURCE_DIR:STATIC=/home/maker/catkin_ws/src/img_reception_intern
+
+//Value Computed by CMake
+img_transmission_intern_BINARY_DIR:STATIC=/home/maker/catkin_ws/build/img_transmission_intern
+
+//Value Computed by CMake
+img_transmission_intern_SOURCE_DIR:STATIC=/home/maker/catkin_ws/src/img_transmission_intern
+
 //Path to a library.
-lib:FILEPATH=/opt/ros/noetic/lib/libserial.so
+lib:FILEPATH=/opt/ros/noetic/lib/librostime.so
 
 //Value Computed by CMake
 localizer_controller_BINARY_DIR:STATIC=/home/maker/catkin_ws/build/localizer_controller
 
 //Value Computed by CMake
 localizer_controller_SOURCE_DIR:STATIC=/home/maker/catkin_ws/src/localizer_controller
+
+//Value Computed by CMake
+map_controller_BINARY_DIR:STATIC=/home/maker/catkin_ws/build/map_controller
+
+//Value Computed by CMake
+map_controller_SOURCE_DIR:STATIC=/home/maker/catkin_ws/src/map_controller
 
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/noetic/share/message_runtime/cmake
@@ -502,6 +520,18 @@ serial_controller_SOURCE_DIR:STATIC=/home/maker/catkin_ws/src/serial_controller
 
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/noetic/share/std_msgs/cmake
+
+//Value Computed by CMake
+vid_reception_ip_BINARY_DIR:STATIC=/home/maker/catkin_ws/build/vid_reception_ip
+
+//Value Computed by CMake
+vid_reception_ip_SOURCE_DIR:STATIC=/home/maker/catkin_ws/src/vid_reception_ip
+
+//Value Computed by CMake
+vid_transmission_ip_BINARY_DIR:STATIC=/home/maker/catkin_ws/build/vid_transmission_ip
+
+//Value Computed by CMake
+vid_transmission_ip_SOURCE_DIR:STATIC=/home/maker/catkin_ws/src/vid_transmission_ip
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/noetic/share/xmlrpcpp/cmake
@@ -654,7 +684,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=13
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

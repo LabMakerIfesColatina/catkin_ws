@@ -8,3 +8,4 @@
 
 # modified environment variables
 export PWD='/home/maker/catkin_ws/build'
+export PYTHONPATH='/opt/ros/noetic/lib/python3/dist-packages'

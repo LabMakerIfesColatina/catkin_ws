@@ -1,0 +1,8 @@
+prefix=/home/maker/catkin_ws/install
+
+Name: vid_reception_ip
+Description: Description of vid_reception_ip
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
