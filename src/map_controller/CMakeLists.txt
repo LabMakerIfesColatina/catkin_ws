@@ -4,6 +4,7 @@ project(map_controller)
 find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
+  cv_bridge
 )
 
 catkin_package(

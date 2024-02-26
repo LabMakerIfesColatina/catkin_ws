@@ -10,7 +10,7 @@ def publish_image():
     rate = rospy.Rate(120)  # Defina a taxa de publicação conforme necessário
     
     # Inicialize a câmera (substitua pela sua lógica de captura de imagem)
-    cap = cv2.VideoCapture(-1)
+    cap = cv2.VideoCapture(2)
 
     # Inicialize o publicador de imagem
     image_pub = rospy.Publisher('/image_topic', Image, queue_size=10)
