@@ -1423,7 +1423,7 @@
 			"path" : "/opt/ros/noetic/share/catkin/cmake/templates/pkgConfig-version.cmake.in"
 		},
 		{
-			"path" : "mapping/scripts/Occ_grid_map.py"
+			"path" : "mapping/scripts/grid.py"
 		},
 		{
 			"isExternal" : true,

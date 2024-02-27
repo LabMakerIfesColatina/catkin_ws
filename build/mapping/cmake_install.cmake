@@ -53,6 +53,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/mapping" TYPE PROGRAM FILES "/home/maker/catkin_ws/build/mapping/catkin_generated/installspace/Occ_grid_map.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/mapping" TYPE PROGRAM FILES "/home/maker/catkin_ws/build/mapping/catkin_generated/installspace/grid.py")
 endif()
 

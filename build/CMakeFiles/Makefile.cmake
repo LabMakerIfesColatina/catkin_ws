@@ -51,7 +51,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/maker/catkin_ws/src/map_controller/scripts/map.py"
   "/home/maker/catkin_ws/src/mapping/CMakeLists.txt"
   "/home/maker/catkin_ws/src/mapping/package.xml"
-  "/home/maker/catkin_ws/src/mapping/scripts/Occ_grid_map.py"
+  "/home/maker/catkin_ws/src/mapping/scripts/grid.py"
   "/home/maker/catkin_ws/src/motion_planing_controller/CMakeLists.txt"
   "/home/maker/catkin_ws/src/motion_planing_controller/package.xml"
   "/home/maker/catkin_ws/src/motion_planing_controller/scripts/enviaSerial.py"
