@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from teste.my_ros_independent_class import my_generic_sum_function
+#from teste.my_ros_independent_class import my_generic_sum_function
 import rospy
 from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Quaternion
@@ -45,7 +45,7 @@ def callback(data):
 
 	global ranges
 	global thetasens
-	print 'camera'
+	print ('camera')
 	
 	
 	thetasens=np.linspace(angle_min,angle_max,640)
