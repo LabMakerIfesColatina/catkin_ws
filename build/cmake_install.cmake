@@ -139,6 +139,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/maker/catkin_ws/build/mapping/cmake_install.cmake")
   include("/home/maker/catkin_ws/build/motion_planing_controller/cmake_install.cmake")
   include("/home/maker/catkin_ws/build/serial_controller/cmake_install.cmake")
+  include("/home/maker/catkin_ws/build/depthimage_to_laserscan/cmake_install.cmake")
   include("/home/maker/catkin_ws/build/vid_reception_ip/cmake_install.cmake")
   include("/home/maker/catkin_ws/build/vid_transmission_ip/cmake_install.cmake")
 

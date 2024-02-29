@@ -9,3 +9,4 @@
 # modified environment variables
 export PATH='/opt/ros/noetic/bin:/home/maker/.local/bin:/home/maker/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'
 export PWD='/home/maker/catkin_ws/build'
+export PYTHONPATH="/home/maker/catkin_ws/devel/lib/python3/dist-packages:$PYTHONPATH"
