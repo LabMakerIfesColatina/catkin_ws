@@ -23,40 +23,5 @@
   "directory": "/home/maker/catkin_ws/build/serial_controller",
   "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"serial_controller\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -g   -o CMakeFiles/teste.dir/src/joy.cpp.o -c /home/maker/catkin_ws/src/serial_controller/src/joy.cpp",
   "file": "/home/maker/catkin_ws/src/serial_controller/src/joy.cpp"
-},
-{
-  "directory": "/home/maker/catkin_ws/build/depthimage_to_laserscan",
-  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"depthimage_to_laserscan\\\" -I/home/maker/catkin_ws/devel/include -I/home/maker/catkin_ws/src/depthimage_to_laserscan/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4  -g   -o CMakeFiles/test_dtl.dir/test/depthimage_to_laserscan_rostest.cpp.o -c /home/maker/catkin_ws/src/depthimage_to_laserscan/test/depthimage_to_laserscan_rostest.cpp",
-  "file": "/home/maker/catkin_ws/src/depthimage_to_laserscan/test/depthimage_to_laserscan_rostest.cpp"
-},
-{
-  "directory": "/home/maker/catkin_ws/build/depthimage_to_laserscan",
-  "command": "/usr/bin/c++  -DDepthImageToLaserScanNodelet_EXPORTS -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"depthimage_to_laserscan\\\" -I/home/maker/catkin_ws/devel/include -I/home/maker/catkin_ws/src/depthimage_to_laserscan/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4  -g -fPIC   -o CMakeFiles/DepthImageToLaserScanNodelet.dir/src/DepthImageToLaserScanNodelet.cpp.o -c /home/maker/catkin_ws/src/depthimage_to_laserscan/src/DepthImageToLaserScanNodelet.cpp",
-  "file": "/home/maker/catkin_ws/src/depthimage_to_laserscan/src/DepthImageToLaserScanNodelet.cpp"
-},
-{
-  "directory": "/home/maker/catkin_ws/build/depthimage_to_laserscan",
-  "command": "/usr/bin/c++  -DDepthImageToLaserScan_EXPORTS -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"depthimage_to_laserscan\\\" -I/home/maker/catkin_ws/devel/include -I/home/maker/catkin_ws/src/depthimage_to_laserscan/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4  -g -fPIC   -o CMakeFiles/DepthImageToLaserScan.dir/src/DepthImageToLaserScan.cpp.o -c /home/maker/catkin_ws/src/depthimage_to_laserscan/src/DepthImageToLaserScan.cpp",
-  "file": "/home/maker/catkin_ws/src/depthimage_to_laserscan/src/DepthImageToLaserScan.cpp"
-},
-{
-  "directory": "/home/maker/catkin_ws/build/depthimage_to_laserscan",
-  "command": "/usr/bin/c++  -DDepthImageToLaserScanROS_EXPORTS -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"depthimage_to_laserscan\\\" -I/home/maker/catkin_ws/devel/include -I/home/maker/catkin_ws/src/depthimage_to_laserscan/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4  -g -fPIC   -o CMakeFiles/DepthImageToLaserScanROS.dir/src/DepthImageToLaserScanROS.cpp.o -c /home/maker/catkin_ws/src/depthimage_to_laserscan/src/DepthImageToLaserScanROS.cpp",
-  "file": "/home/maker/catkin_ws/src/depthimage_to_laserscan/src/DepthImageToLaserScanROS.cpp"
-},
-{
-  "directory": "/home/maker/catkin_ws/build/depthimage_to_laserscan",
-  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"depthimage_to_laserscan\\\" -I/home/maker/catkin_ws/devel/include -I/home/maker/catkin_ws/src/depthimage_to_laserscan/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4  -g   -o CMakeFiles/depthimage_to_laserscan.dir/src/depthimage_to_laserscan.cpp.o -c /home/maker/catkin_ws/src/depthimage_to_laserscan/src/depthimage_to_laserscan.cpp",
-  "file": "/home/maker/catkin_ws/src/depthimage_to_laserscan/src/depthimage_to_laserscan.cpp"
-},
-{
-  "directory": "/home/maker/catkin_ws/build/depthimage_to_laserscan",
-  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"depthimage_to_laserscan\\\" -I/home/maker/catkin_ws/devel/include -I/home/maker/catkin_ws/src/depthimage_to_laserscan/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest  -g   -DGTEST_HAS_PTHREAD=1 -o CMakeFiles/libtest.dir/test/DepthImageToLaserScanTest.cpp.o -c /home/maker/catkin_ws/src/depthimage_to_laserscan/test/DepthImageToLaserScanTest.cpp",
-  "file": "/home/maker/catkin_ws/src/depthimage_to_laserscan/test/DepthImageToLaserScanTest.cpp"
-},
-{
-  "directory": "/home/maker/catkin_ws/build/fake_localization",
-  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"fake_localization\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3  -g   -o CMakeFiles/fake_localization.dir/fake_localization.cpp.o -c /home/maker/catkin_ws/src/fake_localization/fake_localization.cpp",
-  "file": "/home/maker/catkin_ws/src/fake_localization/fake_localization.cpp"
 }
 ]

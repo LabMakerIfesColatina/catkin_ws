@@ -4,6 +4,13 @@ from std_msgs.msg import String
 
 serial_command_pub = rospy.Publisher("/serial_command", String, queue_size=10)
 
+'''
+Ligar o Nó do Joy Stick
+
+rosparam set joy_node/dev "/dev/input/js0"
+rosrun joy joy_node
+'''
+
 def callback(msg):
     if msg.axes[7] == 1:
         message = 'W'
