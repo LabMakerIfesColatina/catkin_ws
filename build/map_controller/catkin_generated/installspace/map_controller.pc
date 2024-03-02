@@ -1,4 +1,4 @@
-prefix=/home/maker/catkin_ws/install
+prefix=/usr/local
 
 Name: map_controller
 Description: Description of map_controller

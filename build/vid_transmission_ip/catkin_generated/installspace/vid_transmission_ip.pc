@@ -1,4 +1,4 @@
-prefix=/home/maker/catkin_ws/install
+prefix=/usr/local
 
 Name: vid_transmission_ip
 Description: Description of vid_transmission_ip

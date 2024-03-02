@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/maker/catkin_ws/devel/lib/serial_controller/teste"
-  "/home/maker/catkin_ws/devel/lib/serial_controller/teste.pdb"
+  "../devel/lib/serial_controller/teste"
+  "../devel/lib/serial_controller/teste.pdb"
   "CMakeFiles/teste.dir/src/joy.cpp.o"
 )
 

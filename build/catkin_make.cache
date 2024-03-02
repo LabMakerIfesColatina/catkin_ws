@@ -1,2 +1,2 @@
-depthimage_to_laserscan:fake_localization:grid_map_controller:img_reception_intern:img_transmission_intern:localizer_controller:map_controller:mapping:motion_planing_controller:serial_controller:vid_reception_ip:vid_transmission_ip
--DCATKIN_DEVEL_PREFIX=/home/maker/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/maker/catkin_ws/install -G Unix Makefiles
+controle_Joy/serial_controller:img_reception/img_reception_intern:img_reception/img_transmission_intern:img_reception/vid_reception_ip:img_reception/vid_transmission_ip:launchrs:map/grid_map_controller:map/localizer_controller:map/map_controller:map/mapping:motion_planing_controller
+-DCATKIN_DEVEL_PREFIX=/home/ph/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ph/catkin_ws/install -G Unix Makefiles

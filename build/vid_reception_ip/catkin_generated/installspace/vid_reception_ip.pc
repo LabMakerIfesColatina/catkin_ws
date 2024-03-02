@@ -1,4 +1,4 @@
-prefix=/home/maker/catkin_ws/install
+prefix=/usr/local
 
 Name: vid_reception_ip
 Description: Description of vid_reception_ip

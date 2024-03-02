@@ -1,4 +1,4 @@
-prefix=/home/maker/catkin_ws/install
+prefix=/usr/local
 
 Name: localizer_controller
 Description: Description of localizer_controller

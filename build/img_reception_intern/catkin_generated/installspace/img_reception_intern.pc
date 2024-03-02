@@ -1,4 +1,4 @@
-prefix=/home/maker/catkin_ws/install
+prefix=/usr/local
 
 Name: img_reception_intern
 Description: Description of img_reception_intern

@@ -1,4 +1,4 @@
-prefix=/home/maker/catkin_ws/devel
+prefix=/home/ph/catkin_ws/devel
 
 Name: motion_planing_controller
 Description: Description of motion_planing_controller
