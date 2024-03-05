@@ -130,3 +130,5 @@ def main():
 		rospy.sleep(1)
 		rospy.spin()
 				
+
+main()

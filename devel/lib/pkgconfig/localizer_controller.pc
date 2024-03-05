@@ -1,4 +1,4 @@
-prefix=/home/ph/catkin_ws/devel
+prefix=/home/maker/catkin_ws/devel
 
 Name: localizer_controller
 Description: Description of localizer_controller

@@ -22,5 +22,7 @@ include_directories(
 catkin_install_python(PROGRAMS
   scripts/grid.py
   scripts/Occ_grid_map.py
+  scripts/fake.py
+  scripts/clock.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
