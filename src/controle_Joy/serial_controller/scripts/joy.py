@@ -12,18 +12,33 @@ rosrun joy joy_node
 '''
 
 def callback(msg):
-    if msg.axes[7] == 1:
-        message = 'W'
-    elif msg.axes[7] == -1:
-        message = 'S'
-    elif msg.axes[6] == 1:
-        message = 'A'
-    elif msg.axes[6] == -1:
-        message = 'D'
-    elif msg.buttons[0] == 1:
-        message = 'P'
-    else:
-        message = ' '
+    try:
+        if msg.axes[7] == 1:
+            message = 'W'
+        elif msg.axes[7] == -1:
+            message = 'S'
+        elif msg.axes[6] == 1:
+            message = 'A'
+        elif msg.axes[6] == -1:
+            message = 'D'
+        elif msg.buttons[0] == 1:
+            message = 'P'
+        else:
+            message = ' '
+    except IndexError:
+        if msg.axes[1] == 1:
+            message = 'W'
+        elif msg.axes[1] == -1:
+            message = 'S'
+        elif msg.axes[0] == 1:
+            message = 'A'
+        elif msg.axes[0] == -1:
+            message = 'D'
+        elif msg.buttons[2] == 1:
+            message = 'P'
+        else:
+            message = ' '
+
 
     serial_command_pub.publish(message)
     print(message)
