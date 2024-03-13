@@ -24,5 +24,6 @@ catkin_install_python(PROGRAMS
   scripts/Occ_grid_map.py
   scripts/fake.py
   scripts/clock.py
+  scripts/scan.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

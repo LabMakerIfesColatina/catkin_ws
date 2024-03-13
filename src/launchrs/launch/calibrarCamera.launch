@@ -1,0 +1,19 @@
+<launch>
+  <!-- Start camera calibration -->
+  <node pkg="camera_calibration" type="cameracalibrator.py" name="cameracalibrator" output="screen">
+    <!-- Tamanho do tabuleiro (número de interseções) -->
+    <param name="size" value="8x6" />
+
+    <!-- Tamanho do quadrado do tabuleiro em metros -->
+    <param name="square" value="0.024" />
+
+    <!-- Tópico de imagem da câmera RGB do Kinect -->
+    <param name="image" value="/camera/rgb/image_raw" />
+
+    <!-- Tópico de informações da câmera RGB do Kinect -->
+    <param name="camera" value="/camera/rgb/camera_info" />
+
+    <!-- Arquivo de saída para a calibração -->
+    <param name="output" value="camera_calibration_data" />
+  </node>
+</launch>

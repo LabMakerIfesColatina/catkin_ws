@@ -101,6 +101,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/maker/catkin_ws/src/map/mapping/scripts/clock.py"
   "/home/maker/catkin_ws/src/map/mapping/scripts/fake.py"
   "/home/maker/catkin_ws/src/map/mapping/scripts/grid.py"
+  "/home/maker/catkin_ws/src/map/mapping/scripts/scan.py"
   "/home/maker/catkin_ws/src/map/slam_gmapping/CMakeLists.txt"
   "/home/maker/catkin_ws/src/map/slam_gmapping/package.xml"
   "/home/maker/catkin_ws/src/map/wheeled_robin-hydro-devel/wheeled_robin/CMakeLists.txt"
