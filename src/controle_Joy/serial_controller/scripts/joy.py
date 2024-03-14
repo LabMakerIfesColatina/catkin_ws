@@ -23,6 +23,8 @@ def callback(msg):
             message = 'D'
         elif msg.buttons[0] == 1:
             message = 'P'
+        elif msg.buttons[1] == 1:
+            message = 'T'
         else:
             message = ' '
     except IndexError:
