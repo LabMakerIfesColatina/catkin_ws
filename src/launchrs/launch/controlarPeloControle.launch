@@ -4,7 +4,6 @@
 
     <param name="joy_node/dev" value="$(arg joy_dev)"/>
 
-
     <node pkg="joy" type="joy_node" name="joy_node"/>
 
     <node pkg="serial_controller" type="joy.py" name="serial_controller_node"/>
