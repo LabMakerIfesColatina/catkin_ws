@@ -1,4 +1,4 @@
-prefix=/home/maker/catkin_ws/devel
+prefix=/home/lisa/catkin_ws/devel
 
 Name: vid_transmission_ip
 Description: Description of vid_transmission_ip

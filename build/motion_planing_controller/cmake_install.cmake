@@ -1,8 +1,8 @@
-# Install script for directory: /home/maker/catkin_ws/src/motion_planing_controller
+# Install script for directory: /home/lisa/catkin_ws/src/motion_planing_controller
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/maker/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/lisa/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -38,21 +38,21 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/maker/catkin_ws/build/motion_planing_controller/catkin_generated/installspace/motion_planing_controller.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lisa/catkin_ws/build/motion_planing_controller/catkin_generated/installspace/motion_planing_controller.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/motion_planing_controller/cmake" TYPE FILE FILES
-    "/home/maker/catkin_ws/build/motion_planing_controller/catkin_generated/installspace/motion_planing_controllerConfig.cmake"
-    "/home/maker/catkin_ws/build/motion_planing_controller/catkin_generated/installspace/motion_planing_controllerConfig-version.cmake"
+    "/home/lisa/catkin_ws/build/motion_planing_controller/catkin_generated/installspace/motion_planing_controllerConfig.cmake"
+    "/home/lisa/catkin_ws/build/motion_planing_controller/catkin_generated/installspace/motion_planing_controllerConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/motion_planing_controller" TYPE FILE FILES "/home/maker/catkin_ws/src/motion_planing_controller/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/motion_planing_controller" TYPE FILE FILES "/home/lisa/catkin_ws/src/motion_planing_controller/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/motion_planing_controller" TYPE PROGRAM FILES "/home/maker/catkin_ws/build/motion_planing_controller/catkin_generated/installspace/enviaSerial.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/motion_planing_controller" TYPE PROGRAM FILES "/home/lisa/catkin_ws/build/motion_planing_controller/catkin_generated/installspace/enviaSerial.py")
 endif()
 
