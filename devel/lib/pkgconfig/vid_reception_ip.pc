@@ -1,0 +1,8 @@
+prefix=/home/pauloh/catkin_ws/devel
+
+Name: vid_reception_ip
+Description: Description of vid_reception_ip
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

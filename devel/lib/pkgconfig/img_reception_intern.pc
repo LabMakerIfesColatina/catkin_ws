@@ -1,0 +1,8 @@
+prefix=/home/pauloh/catkin_ws/devel
+
+Name: img_reception_intern
+Description: Description of img_reception_intern
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
