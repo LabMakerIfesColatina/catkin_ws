@@ -62,6 +62,7 @@ all: motion_planing_controller/all
 all: controle_Joy/serial_controller/all
 all: img_reception/vid_reception_ip/all
 all: img_reception/vid_transmission_ip/all
+all: video_detector/all
 
 .PHONY : all
 
@@ -75,6 +76,7 @@ preinstall: motion_planing_controller/preinstall
 preinstall: controle_Joy/serial_controller/preinstall
 preinstall: img_reception/vid_reception_ip/preinstall
 preinstall: img_reception/vid_transmission_ip/preinstall
+preinstall: video_detector/preinstall
 
 .PHONY : preinstall
 
@@ -93,6 +95,7 @@ clean: motion_planing_controller/clean
 clean: controle_Joy/serial_controller/clean
 clean: img_reception/vid_reception_ip/clean
 clean: img_reception/vid_transmission_ip/clean
+clean: video_detector/clean
 
 .PHONY : clean
 
@@ -310,6 +313,28 @@ motion_planing_controller/preinstall:
 motion_planing_controller/clean:
 
 .PHONY : motion_planing_controller/clean
+
+#=============================================================================
+# Directory level rules for directory video_detector
+
+# Recursive "all" directory target.
+video_detector/all:
+
+.PHONY : video_detector/all
+
+# Recursive "preinstall" directory target.
+video_detector/preinstall:
+
+.PHONY : video_detector/preinstall
+
+# Recursive "clean" directory target.
+video_detector/clean: video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+video_detector/clean: video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+video_detector/clean: video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+video_detector/clean: video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
+video_detector/clean: video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+
+.PHONY : video_detector/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/doxygen.dir
@@ -1013,6 +1038,141 @@ teste: controle_Joy/serial_controller/CMakeFiles/teste.dir/rule
 controle_Joy/serial_controller/CMakeFiles/teste.dir/clean:
 	$(MAKE) -f controle_Joy/serial_controller/CMakeFiles/teste.dir/build.make controle_Joy/serial_controller/CMakeFiles/teste.dir/clean
 .PHONY : controle_Joy/serial_controller/CMakeFiles/teste.dir/clean
+
+#=============================================================================
+# Target rules for target video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
+
+# All Build rule for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pauloh/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_nodejs"
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pauloh/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pauloh/catkin_ws/build/CMakeFiles 0
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_nodejs: video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_nodejs
+
+# clean rule for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pauloh/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_py"
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pauloh/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pauloh/catkin_ws/build/CMakeFiles 0
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_py: video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_py
+
+# clean rule for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pauloh/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_lisp"
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pauloh/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pauloh/catkin_ws/build/CMakeFiles 0
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_lisp: video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_lisp
+
+# clean rule for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir
+
+# All Build rule for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pauloh/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_eus"
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pauloh/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pauloh/catkin_ws/build/CMakeFiles 0
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_eus: video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_eus
+
+# clean rule for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pauloh/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_cpp"
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pauloh/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pauloh/catkin_ws/build/CMakeFiles 0
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_cpp: video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_cpp
+
+# clean rule for target.
+video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+.PHONY : video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

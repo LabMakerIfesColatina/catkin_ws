@@ -139,6 +139,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/pauloh/catkin_ws/build/controle_Joy/serial_controller/cmake_install.cmake")
   include("/home/pauloh/catkin_ws/build/img_reception/vid_reception_ip/cmake_install.cmake")
   include("/home/pauloh/catkin_ws/build/img_reception/vid_transmission_ip/cmake_install.cmake")
+  include("/home/pauloh/catkin_ws/build/video_detector/cmake_install.cmake")
 
 endif()
 

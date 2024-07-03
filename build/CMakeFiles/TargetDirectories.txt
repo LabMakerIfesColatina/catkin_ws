@@ -108,3 +108,15 @@
 /home/pauloh/catkin_ws/build/img_reception/vid_transmission_ip/CMakeFiles/rebuild_cache.dir
 /home/pauloh/catkin_ws/build/img_reception/vid_transmission_ip/CMakeFiles/edit_cache.dir
 /home/pauloh/catkin_ws/build/img_reception/vid_transmission_ip/CMakeFiles/test.dir
+/home/pauloh/catkin_ws/build/video_detector/CMakeFiles/install/strip.dir
+/home/pauloh/catkin_ws/build/video_detector/CMakeFiles/install/local.dir
+/home/pauloh/catkin_ws/build/video_detector/CMakeFiles/install.dir
+/home/pauloh/catkin_ws/build/video_detector/CMakeFiles/list_install_components.dir
+/home/pauloh/catkin_ws/build/video_detector/CMakeFiles/rebuild_cache.dir
+/home/pauloh/catkin_ws/build/video_detector/CMakeFiles/edit_cache.dir
+/home/pauloh/catkin_ws/build/video_detector/CMakeFiles/test.dir
+/home/pauloh/catkin_ws/build/video_detector/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
+/home/pauloh/catkin_ws/build/video_detector/CMakeFiles/geometry_msgs_generate_messages_py.dir
+/home/pauloh/catkin_ws/build/video_detector/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
+/home/pauloh/catkin_ws/build/video_detector/CMakeFiles/geometry_msgs_generate_messages_eus.dir
+/home/pauloh/catkin_ws/build/video_detector/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
