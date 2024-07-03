@@ -1,0 +1,7 @@
+<launch>
+  <!-- Load the URDF model -->
+  <param name="robot_description" textfile="/home/pauloh/catkin_ws/src/launchrs/urdf/modeloOsorin.urdf"/>
+
+  <!-- Start the robot state publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+</launch>
