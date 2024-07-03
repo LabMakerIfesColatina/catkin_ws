@@ -70,6 +70,37 @@ def conexoesMatriz(linhas: int, colunas: int, nos: 'List[List[Nodes | None]]'):
                 if j < colunas - 1 and nos[i][j + 1]:
                     nos[i][j].vizinhos.append(nos[i][j + 1])  # Direita
 
+def construirCaminho(caminho: List[Nodes]):
+    anterior = None
+    atual = None
+    proximo = None
+
+    for i in range(len(caminho)):
+        if i == 0:
+            atual = caminho[i]
+            proximo = caminho[i+1]
+        elif i == len(caminho) - 1:
+            anterior = caminho[i-1]
+            atual = caminho[i]
+        else:
+            anterior = caminho[i-1]
+            atual = caminho[i]
+            proximo = caminho[i+1]
+
+        if anterior and proximo:
+            if anterior.x == atual.x and atual.x == proximo.x:
+                print("Frente")
+            elif anterior.y == atual.y and atual.y == proximo.y:
+                print("Direita")
+            elif anterior.x < atual.x and atual.y < atual.y:
+                print("Diagonal Direita")
+            elif anterior.x < atual.x and atual.y > atual.y:
+                print("Diagonal Esquerda")
+            elif anterior.x > atual.x and atual.y < atual.y:
+                print("Diagonal Direita")
+            elif anterior.x > atual.x and atual.y > atual.y:
+                print("Diagonal Esquerda")
+
 def main():
     
     matriz2 = [
@@ -119,7 +150,8 @@ def main():
     caminho = AlgoritmoAStar.a_estrela(inicio, objetivo, matriz)
 
     if caminho:
-        print("Caminho encontrado:", [(no.x, no.y) for no in caminho])
+        #print("Caminho encontrado:", [(no.x, no.y) for no in caminho])
+        construirCaminho(caminho)
     else:
         print("Caminho não encontrado.")
 
