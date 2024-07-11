@@ -19,13 +19,13 @@ class Movimento:
     def virar90direita():
         serial_command_pub.publish('D')
         rospy.loginfo('D')
-        time.sleep(1.5)
+        time.sleep(0.79)
 
     @staticmethod
     def virar90esquerda():
         serial_command_pub.publish('A')
         rospy.loginfo('A')
-        time.sleep(1.5)
+        time.sleep(0.8)
 
     @staticmethod
     def virar180():
@@ -186,10 +186,10 @@ def main():
     # Estabelecendo conexões entre os nós
     conexoesMatriz(linhas, colunas, nos)
 
-    inicio_y =  0
-    inicio_x = 0
-    objetivo_x = 3
-    objetivo_y = 3
+    inicio_y = 3
+    inicio_x = 3
+    objetivo_x = 0
+    objetivo_y = 0
 
     inicio = nos[inicio_x][inicio_y]
     objetivo = nos[objetivo_y][objetivo_x]
@@ -199,7 +199,7 @@ def main():
     if caminho:
         #print("Caminho encontrado:", [(no.x, no.y) for no in caminho])
         construirCaminho(caminho)
-        print(matriz)
+        #print(matriz)
     else:
         print("Caminho não encontrado.")
 

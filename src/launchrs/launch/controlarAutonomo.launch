@@ -1,8 +1,5 @@
 <launch>
-    <arg name="joy_dev" default="/dev/input/js0"/>
     <arg name="serial_port" default="/dev/ttyUSB0"/>
-
-    <param name="joy_node/dev" value="$(arg joy_dev)"/>
 
     <node pkg="grid_map_controller" type="main.py" name="comand_node"/>
 
