@@ -1,2 +1,2 @@
 controle_Joy/serial_controller:img_reception/img_reception_intern:img_reception/img_transmission_intern:img_reception/vid_reception_ip:img_reception/vid_transmission_ip:launchrs:map/grid_map_controller:motion_planing_controller:video_detector
--DCATKIN_DEVEL_PREFIX=/home/pauloh/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/pauloh/catkin_ws/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/joaopedro/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/joaopedro/catkin_ws/install -G Unix Makefiles

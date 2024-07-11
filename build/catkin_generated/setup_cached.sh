@@ -7,5 +7,5 @@
 # new environment variables
 
 # modified environment variables
-export PWD='/home/pauloh/catkin_ws/build'
-export ROS_PACKAGE_PATH='/home/pauloh/catkin_ws/src:/opt/ros/noetic/share'
+export PWD='/home/joaopedro/catkin_ws/build'
+export ROS_PACKAGE_PATH='/home/pauloh/catkin_ws/src:/home/joaopedro/catkin_ws/src:/opt/ros/noetic/share'

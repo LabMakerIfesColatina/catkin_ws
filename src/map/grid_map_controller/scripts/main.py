@@ -1,5 +1,41 @@
 import math
+import time
+from copy import copy
 from typing import List, Dict
+import rospy
+from std_msgs.msg import String
+
+serial_command_pub = rospy.Publisher("/serial_command", String, queue_size=10)
+
+class Movimento:
+    
+    @staticmethod
+    def frente():
+        serial_command_pub.publish('W')
+        rospy.loginfo('W')
+        time.sleep(1.07)
+
+    @staticmethod
+    def virar90direita():
+        serial_command_pub.publish('D')
+        rospy.loginfo('D')
+        time.sleep(1.5)
+
+    @staticmethod
+    def virar90esquerda():
+        serial_command_pub.publish('A')
+        rospy.loginfo('A')
+        time.sleep(1.5)
+
+    @staticmethod
+    def virar180():
+        serial_command_pub.publish('S')
+        rospy.loginfo('S')
+
+    @staticmethod
+    def parar():
+        serial_command_pub.publish('P')
+        rospy.loginfo('P')
 
 class Nodes:
     def __init__(self, x: int, y: int):
@@ -56,72 +92,91 @@ class AlgoritmoAStar:
         caminho.reverse()
         return caminho
     
-
 def conexoesMatriz(linhas: int, colunas: int, nos: 'List[List[Nodes | None]]'):
-    for i in range(linhas):
-        for j in range(colunas):
+    for i in range(linhas):  # y
+        for j in range(colunas):  # x
             if nos[i][j]:
-                if i > 0 and nos[i - 1][j]:
-                    nos[i][j].vizinhos.append(nos[i - 1][j])  # Acima
-                if i < linhas - 1 and nos[i + 1][j]:
-                    nos[i][j].vizinhos.append(nos[i + 1][j])  # Abaixo
-                if j > 0 and nos[i][j - 1]:
-                    nos[i][j].vizinhos.append(nos[i][j - 1])  # Esquerda
-                if j < colunas - 1 and nos[i][j + 1]:
-                    nos[i][j].vizinhos.append(nos[i][j + 1])  # Direita
+                # Corrigindo as direções com base na nova definição de x e y
+                if i > 0 and nos[i - 1][j]:  # Acima
+                    nos[i][j].vizinhos.append(nos[i - 1][j])
+                if i < linhas - 1 and nos[i + 1][j]:  # Abaixo
+                    nos[i][j].vizinhos.append(nos[i + 1][j])
+                if j > 0 and nos[i][j - 1]:  # Esquerda
+                    nos[i][j].vizinhos.append(nos[i][j - 1])
+                if j < colunas - 1 and nos[i][j + 1]:  # Direita
+                    nos[i][j].vizinhos.append(nos[i][j + 1])
+
+def atualizar_orientacao(orientacao_atual, dx, dy):
+    direcoes = ['N', 'L', 'S', 'O']  # Norte, Leste, Sul, Oeste
+    if dx > 0:  # Movendo-se para leste
+        nova_orientacao = 'S'
+    elif dx < 0:  # Movendo-se para oeste
+        nova_orientacao = 'N'
+    elif dy > 0:  # Movendo-se para norte
+        nova_orientacao = 'L'
+    elif dy < 0:  # Movendo-se para sul
+        nova_orientacao = 'O'
+    else:
+        return orientacao_atual  # Sem movimento, mantém a orientação
+
+    # Calcula a rotação necessária
+    rotacao = direcoes.index(nova_orientacao) - direcoes.index(orientacao_atual)
+    if rotacao == 1 or rotacao == -3:
+        Movimento.virar90direita()
+        print("Virar para a direita")
+    elif rotacao == -1 or rotacao == 3:
+        Movimento.virar90esquerda()
+        print("Virar para a esquerda")
+    elif abs(rotacao) == 2:
+        Movimento.virar180()
+        print("Virar para trás")
+    return nova_orientacao
 
 def construirCaminho(caminho: List[Nodes]):
-    anterior = None
-    atual = None
-    proximo = None
-
-    for i in range(len(caminho)):
-        if i == 0:
-            atual = caminho[i]
-            proximo = caminho[i+1]
-        elif i == len(caminho) - 1:
-            anterior = caminho[i-1]
-            atual = caminho[i]
-        else:
-            anterior = caminho[i-1]
-            atual = caminho[i]
-            proximo = caminho[i+1]
-
-        if anterior and proximo:
-            if anterior.x == atual.x and atual.x == proximo.x:
-                print("Frente")
-            elif anterior.y == atual.y and atual.y == proximo.y:
-                print("Direita")
-            elif anterior.x < atual.x and atual.y < atual.y:
-                print("Diagonal Direita")
-            elif anterior.x < atual.x and atual.y > atual.y:
-                print("Diagonal Esquerda")
-            elif anterior.x > atual.x and atual.y < atual.y:
-                print("Diagonal Direita")
-            elif anterior.x > atual.x and atual.y > atual.y:
-                print("Diagonal Esquerda")
+    # anterior = None
+    # atual = None
+    # proximo = None
+    orientacao = 'N'
+    quadranteAtual = copy(caminho[0])
+    del caminho[0]
+    # print(f"{quadranteAtual.x},{quadranteAtual.y}")
+    for quadrante in caminho:
+        #Movimentacao pelo eixo y
+        dy=quadrante.y-quadranteAtual.y
+        dx=quadrante.x-quadranteAtual.x
+        orientacao=atualizar_orientacao(orientacao,dx,dy)
+        # print(f"dx={dx}, dy={dy}")
+        print(f"{quadrante.x},{quadrante.y}")
+        quadranteAtual=quadrante
+        Movimento.frente()
+        Movimento.parar()
 
 def main():
-    
+    rospy.init_node("controlador")
+
     matriz2 = [
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
-        [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1],
+        [1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+        [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+        [1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1],
+        [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1],
+        [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1],
+        [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1],
     ]
 
-    matriz = [
+    matriz1 = [
         [0,0,1,1],
         [0,0,1,0],
         [0,0,0,0],
         [0,1,0,0],
     ]
+
+    matriz = matriz1
 
     # Criando nós a partir da matriz
     linhas = len(matriz)
@@ -131,31 +186,22 @@ def main():
     # Estabelecendo conexões entre os nós
     conexoesMatriz(linhas, colunas, nos)
 
-    # Definindo nó de início e destino
-    '''inicio_x =  4
-    inicio_y =  3
-    objetivo_x = 9
-    objetivo_y = 10 '''
-
-    inicio_x =  0
     inicio_y =  0
+    inicio_x = 0
     objetivo_x = 3
     objetivo_y = 3
 
-
     inicio = nos[inicio_x][inicio_y]
-    objetivo = nos[objetivo_x][objetivo_y]
-
+    objetivo = nos[objetivo_y][objetivo_x]
 
     caminho = AlgoritmoAStar.a_estrela(inicio, objetivo, matriz)
 
     if caminho:
         #print("Caminho encontrado:", [(no.x, no.y) for no in caminho])
         construirCaminho(caminho)
+        print(matriz)
     else:
         print("Caminho não encontrado.")
-
-
 
 if __name__ == '__main__':
     main()
