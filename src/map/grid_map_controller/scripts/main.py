@@ -154,6 +154,18 @@ def construirCaminho(caminho: List[Nodes]):
 def main():
     rospy.init_node("controlador")
 
+    #8x13
+    matriz3 = [
+        [0,0,1,1,1,1,1,1,1,1,1,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,1,1,1,1,1,1,1,1,1,0,0],
+        [0,0,1,1,1,1,1,1,1,1,1,0,0],
+        [0,0,1,1,1,1,1,1,1,1,1,0,0],
+        [0,0,1,1,1,1,1,1,1,1,1,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,1,1,1,1,1,1,1,1,1,0,0],
+    ]
+
     matriz2 = [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         [1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -176,7 +188,7 @@ def main():
         [0,1,0,0],
     ]
 
-    matriz = matriz1
+    matriz = matriz3
 
     # Criando nós a partir da matriz
     linhas = len(matriz)
@@ -186,10 +198,10 @@ def main():
     # Estabelecendo conexões entre os nós
     conexoesMatriz(linhas, colunas, nos)
 
-    inicio_y = 3
-    inicio_x = 3
-    objetivo_x = 0
-    objetivo_y = 0
+    inicio_y = 0
+    inicio_x = 0
+    objetivo_x = 7
+    objetivo_y = 12
 
     inicio = nos[inicio_x][inicio_y]
     objetivo = nos[objetivo_y][objetivo_x]
