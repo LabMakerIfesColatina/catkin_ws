@@ -1,4 +1,4 @@
-prefix=/home/pauloh/catkin_ws/devel
+prefix=/home/joaopedro/catkin_ws/devel
 
 Name: vid_reception_ip
 Description: Description of vid_reception_ip

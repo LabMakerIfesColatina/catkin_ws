@@ -11,25 +11,26 @@ class Movimento:
     
     @staticmethod
     def frente():
-        serial_command_pub.publish('W')
+        serial_command_pub.publish('S')
         rospy.loginfo('W')
-        time.sleep(1.07)
+        time.sleep(1.8)
 
     @staticmethod
     def virar90direita():
-        serial_command_pub.publish('D')
+        serial_command_pub.publish('A')
         rospy.loginfo('D')
-        time.sleep(0.79)
+        time.sleep(1.2)
 
     @staticmethod
     def virar90esquerda():
-        serial_command_pub.publish('A')
+        serial_command_pub.publish('D')
         rospy.loginfo('A')
-        time.sleep(0.8)
+        time.sleep(1.15)
 
     @staticmethod
     def virar180():
-        serial_command_pub.publish('S')
+        serial_command_pub.publish('D')
+        time.sleep(2.4)
         rospy.loginfo('S')
 
     @staticmethod
@@ -103,31 +104,35 @@ def conexoesMatriz(linhas: int, colunas: int, nos: 'List[List[Nodes | None]]'):
                     nos[i][j].vizinhos.append(nos[i + 1][j])
                 if j > 0 and nos[i][j - 1]:  # Esquerda
                     nos[i][j].vizinhos.append(nos[i][j - 1])
-                if j < colunas - 1 and nos[i][j + 1]:  # Direita
-                    nos[i][j].vizinhos.append(nos[i][j + 1])
+                if j < colunas - 1: 
+                    if nos[i][j + 1]:  # Direita
+                        nos[i][j].vizinhos.append(nos[i][j + 1])
 
 def atualizar_orientacao(orientacao_atual, dx, dy):
     direcoes = ['N', 'L', 'S', 'O']  # Norte, Leste, Sul, Oeste
-    if dx > 0:  # Movendo-se para leste
-        nova_orientacao = 'S'
-    elif dx < 0:  # Movendo-se para oeste
-        nova_orientacao = 'N'
-    elif dy > 0:  # Movendo-se para norte
+    if dy > 0:  # Movendo-se para leste
         nova_orientacao = 'L'
-    elif dy < 0:  # Movendo-se para sul
+    elif dy < 0:  # Movendo-se para oeste
         nova_orientacao = 'O'
+    elif dx < 0:  # Movendo-se para norte
+        nova_orientacao = 'N'
+    elif dx > 0:  # Movendo-se para sul
+        nova_orientacao = 'S'
     else:
         return orientacao_atual  # Sem movimento, mantém a orientação
 
     # Calcula a rotação necessária
     rotacao = direcoes.index(nova_orientacao) - direcoes.index(orientacao_atual)
     if rotacao == 1 or rotacao == -3:
+        time.sleep(1.26)
         Movimento.virar90direita()
         print("Virar para a direita")
     elif rotacao == -1 or rotacao == 3:
+        time.sleep(1.26)
         Movimento.virar90esquerda()
         print("Virar para a esquerda")
     elif abs(rotacao) == 2:
+        time.sleep(1.26)
         Movimento.virar180()
         print("Virar para trás")
     return nova_orientacao
@@ -145,25 +150,26 @@ def construirCaminho(caminho: List[Nodes]):
         dy=quadrante.y-quadranteAtual.y
         dx=quadrante.x-quadranteAtual.x
         orientacao=atualizar_orientacao(orientacao,dx,dy)
-        # print(f"dx={dx}, dy={dy}")
+        print(f"dx={dx}, dy={dy}")
         print(f"{quadrante.x},{quadrante.y}")
         quadranteAtual=quadrante
         Movimento.frente()
         Movimento.parar()
 
 def main():
+    time.sleep(5)
     rospy.init_node("controlador")
 
     #8x13
     matriz3 = [
-        [0,0,1,1,1,1,1,1,1,1,1,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,1,1,1,1,1,1,1,1,1,0,0],
-        [0,0,1,1,1,1,1,1,1,1,1,0,0],
-        [0,0,1,1,1,1,1,1,1,1,1,0,0],
-        [0,0,1,1,1,1,1,1,1,1,1,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,1,1,1,1,1,1,1,1,1,0,0],
+        [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+        [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+        [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+        [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
     ]
 
     matriz2 = [
@@ -193,23 +199,29 @@ def main():
     # Criando nós a partir da matriz
     linhas = len(matriz)
     colunas = len(matriz[0])
+    print(linhas)
+    print(colunas)
     nos = [[Nodes(i, j) if matriz[i][j] == 0 else None for j in range(colunas)] for i in range(linhas)]
 
     # Estabelecendo conexões entre os nós
     conexoesMatriz(linhas, colunas, nos)
 
-    inicio_y = 0
     inicio_x = 0
-    objetivo_x = 7
-    objetivo_y = 12
+    inicio_y = 6
+    objetivo_x = 11
+    objetivo_y = 7
 
-    inicio = nos[inicio_x][inicio_y]
+    inicio = nos[inicio_y][inicio_x]
     objetivo = nos[objetivo_y][objetivo_x]
 
     caminho = AlgoritmoAStar.a_estrela(inicio, objetivo, matriz)
+    # Movimento.virar90direita()
+    # Movimento.parar()
+    # Movimento.virar90esquerda()
+    # Movimento.parar()
 
     if caminho:
-        #print("Caminho encontrado:", [(no.x, no.y) for no in caminho])
+        print("Caminho encontrado:", [(no.x, no.y) for no in caminho])
         construirCaminho(caminho)
         #print(matriz)
     else:

@@ -1,4 +1,4 @@
-prefix=/home/pauloh/catkin_ws/devel
+prefix=/home/joaopedro/catkin_ws/devel
 
 Name: serial_controller
 Description: Description of serial_controller
