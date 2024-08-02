@@ -19,18 +19,18 @@ class Movimento:
     def virar90direita():
         serial_command_pub.publish('D')
         rospy.loginfo('D')
-        time.sleep(1.2)
+        time.sleep(0.78)
 
     @staticmethod
     def virar90esquerda():
         serial_command_pub.publish('A')
         rospy.loginfo('A')
-        time.sleep(1.15)
+        time.sleep(0.75)
 
     @staticmethod
     def virar180():
         serial_command_pub.publish('D')
-        time.sleep(2.4)
+        time.sleep(1.6)
         rospy.loginfo('S')
 
     @staticmethod
@@ -42,16 +42,8 @@ def main():
     time.sleep(5)
     rospy.init_node("controlador")
 
-    Movimento.virar90esquerda()
+    Movimento.virar180()
     Movimento.parar()
-    
-    '''Movimento.virar90direita()
-    Movimento.parar()
-    Movimento.virar90esquerda()
-    Movimento.parar()
-    Movimento.frente()
-    Movimento.parar()'''
-
    
 
 if __name__ == '__main__':
