@@ -11,19 +11,19 @@ class Movimento:
     
     @staticmethod
     def frente():
-        serial_command_pub.publish('S')
+        serial_command_pub.publish('W')
         rospy.loginfo('W')
         time.sleep(1.8)
 
     @staticmethod
     def virar90direita():
-        serial_command_pub.publish('A')
+        serial_command_pub.publish('D')
         rospy.loginfo('D')
         time.sleep(1.2)
 
     @staticmethod
     def virar90esquerda():
-        serial_command_pub.publish('D')
+        serial_command_pub.publish('A')
         rospy.loginfo('A')
         time.sleep(1.15)
 
@@ -167,7 +167,7 @@ def main():
         [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
         [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
         [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
-        [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
     ]
@@ -194,7 +194,7 @@ def main():
         [0,1,0,0],
     ]
 
-    matriz = matriz3
+    matriz = matriz1
 
     # Criando nós a partir da matriz
     linhas = len(matriz)
@@ -206,10 +206,10 @@ def main():
     # Estabelecendo conexões entre os nós
     conexoesMatriz(linhas, colunas, nos)
 
-    inicio_x = 0
-    inicio_y = 6
-    objetivo_x = 11
-    objetivo_y = 7
+    inicio_x = 3
+    inicio_y = 3
+    objetivo_x = 0
+    objetivo_y = 0
 
     inicio = nos[inicio_y][inicio_x]
     objetivo = nos[objetivo_y][objetivo_x]

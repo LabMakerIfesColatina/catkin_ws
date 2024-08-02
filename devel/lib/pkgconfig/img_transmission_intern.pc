@@ -1,4 +1,4 @@
-prefix=/home/joaopedro/catkin_ws/devel
+prefix=/home/pauloh/catkin_ws/devel
 
 Name: img_transmission_intern
 Description: Description of img_transmission_intern
